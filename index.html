@@ -5,6 +5,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="wK2VO8M2ExVFWTaGRNxFOr9ng3STpqkDuMa8l0asKkA" />
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   <title>Developer Tools — Simple Tools for Developers</title>
 
   <meta
@@ -20,611 +22,7 @@
     rel="stylesheet"
   >
 
-  <style>
-    :root{
-      --bg:#090d18;
-      --surface:#111827;
-      --surface2:#0d1423;
-      --border:#263148;
-
-      --text:#edf2ff;
-      --muted:#8995ad;
-
-      --accent:#8b7cff;
-      --accent2:#5eead4;
-
-      --shadow:0 24px 80px rgba(0,0,0,.34);
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      min-height:100vh;
-      margin:0;
-
-      background:
-        radial-gradient(
-          circle at 15% -5%,
-          rgba(139,124,255,.18),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 85% 10%,
-          rgba(94,234,212,.08),
-          transparent 24%
-        ),
-        var(--bg);
-
-      color:var(--text);
-      font-family:"DM Sans",system-ui,sans-serif;
-    }
-
-    a{
-      color:inherit;
-    }
-
-    .site-header{
-      height:72px;
-      max-width:1180px;
-      margin:auto;
-      padding:0 24px;
-
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-
-      color:var(--text);
-      text-decoration:none;
-
-      font-weight:700;
-      font-size:20px;
-      letter-spacing:-.5px;
-    }
-
-    .brand-mark{
-      width:35px;
-      height:35px;
-
-      display:grid;
-      place-items:center;
-
-      border:1px solid #3b4660;
-      border-radius:10px;
-
-      color:var(--accent2);
-      background:#121a2b;
-
-      font-family:"JetBrains Mono",monospace;
-      font-size:13px;
-    }
-
-    .brand-accent{
-      color:var(--accent);
-    }
-
-    .privacy-pill{
-      font-size:12px;
-      color:#a9b3c7;
-
-      border:1px solid var(--border);
-      border-radius:999px;
-
-      padding:7px 11px;
-
-      background:rgba(17,24,39,.6);
-    }
-
-    .dot{
-      display:inline-block;
-
-      width:6px;
-      height:6px;
-
-      background:var(--accent2);
-      border-radius:50%;
-
-      margin-right:7px;
-
-      box-shadow:0 0 10px var(--accent2);
-    }
-
-    .container{
-      max-width:1180px;
-      margin:auto;
-      padding:70px 24px 50px;
-    }
-
-    /* HERO */
-
-    .hero{
-      max-width:820px;
-      margin:0 auto;
-      text-align:center;
-    }
-
-    .eyebrow{
-      margin:0 0 16px;
-
-      color:var(--accent2);
-
-      font-size:11px;
-      font-weight:700;
-
-      letter-spacing:2px;
-      text-transform:uppercase;
-    }
-
-    h1{
-      margin:0;
-
-      font-size:clamp(42px,7vw,72px);
-      line-height:.98;
-
-      letter-spacing:-4px;
-      font-weight:700;
-    }
-
-    h1 span{
-      background:
-        linear-gradient(
-          100deg,
-          var(--accent),
-          var(--accent2)
-        );
-
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    .hero-copy{
-      max-width:650px;
-      margin:20px auto 0;
-
-      color:var(--muted);
-
-      font-size:17px;
-      line-height:1.7;
-    }
-
-    .hero-actions{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-
-      margin-top:30px;
-    }
-
-    .primary-btn,
-    .secondary-btn{
-      min-height:42px;
-
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      padding:0 16px;
-
-      border-radius:9px;
-
-      text-decoration:none;
-
-      font-size:13px;
-      font-weight:600;
-    }
-
-    .primary-btn{
-      border:0;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--accent),
-          #6e5cf0
-        );
-
-      color:#fff;
-
-      box-shadow:
-        0 8px 24px rgba(139,124,255,.18);
-
-      transition:
-        transform .15s ease,
-        filter .15s ease;
-    }
-
-    .primary-btn:hover{
-      filter:brightness(1.08);
-      transform:translateY(-1px);
-    }
-
-    .secondary-btn{
-      border:1px solid var(--border);
-      background:#141d2f;
-      color:#b8c1d3;
-    }
-
-    .secondary-btn:hover{
-      background:#1a253a;
-      color:var(--text);
-    }
-
-    /* TOOL PREVIEW */
-
-    .preview{
-      max-width:940px;
-      margin:65px auto 0;
-
-      background:rgba(17,24,39,.88);
-
-      border:1px solid var(--border);
-      border-radius:20px;
-
-      overflow:hidden;
-
-      box-shadow:var(--shadow);
-
-      backdrop-filter:blur(12px);
-    }
-
-    .window-bar{
-      height:44px;
-
-      display:flex;
-      align-items:center;
-
-      padding:0 16px;
-
-      border-bottom:1px solid var(--border);
-
-      background:#0e1524;
-    }
-
-    .window-dots{
-      display:flex;
-      gap:6px;
-    }
-
-    .window-dots span{
-      width:7px;
-      height:7px;
-
-      border-radius:50%;
-
-      background:#344058;
-    }
-
-    .window-title{
-      margin:auto;
-
-      color:#67748d;
-
-      font-family:"JetBrains Mono",monospace;
-      font-size:10px;
-    }
-
-    .preview-body{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-
-      min-height:300px;
-    }
-
-    .code-panel{
-      padding:24px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(13,20,35,.96),
-          rgba(9,14,25,.96)
-        );
-    }
-
-    .code-panel + .code-panel{
-      border-left:1px solid var(--border);
-    }
-
-    .panel-label{
-      margin-bottom:18px;
-
-      color:#66738b;
-
-      font-family:"JetBrains Mono",monospace;
-      font-size:10px;
-
-      text-transform:uppercase;
-      letter-spacing:1.4px;
-    }
-
-    pre{
-      margin:0;
-
-      color:#cbd5e8;
-
-      font-family:"JetBrains Mono",monospace;
-      font-size:12px;
-      line-height:1.8;
-
-      white-space:pre-wrap;
-    }
-
-    .syntax-key{
-      color:#9b8fff;
-    }
-
-    .syntax-string{
-      color:#72e6d3;
-    }
-
-    .syntax-number{
-      color:#c5baff;
-    }
-
-    /* FEATURES */
-
-    .section-heading{
-      max-width:700px;
-      margin:80px auto 25px;
-
-      text-align:center;
-    }
-
-    .section-heading h2{
-      margin:0;
-
-      color:#dfe6f5;
-
-      font-size:27px;
-      letter-spacing:-1px;
-    }
-
-    .section-heading p{
-      margin:10px 0 0;
-
-      color:#78859d;
-
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .features{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-
-      gap:12px;
-    }
-
-    .feature{
-      padding:22px;
-
-      border:1px solid var(--border);
-      border-radius:15px;
-
-      background:rgba(17,24,39,.48);
-
-      transition:
-        transform .15s ease,
-        border-color .15s ease,
-        background .15s ease;
-    }
-
-    .feature:hover{
-      transform:translateY(-2px);
-
-      border-color:#35425e;
-      background:rgba(17,24,39,.7);
-    }
-
-    .feature-icon{
-      width:36px;
-      height:36px;
-
-      display:grid;
-      place-items:center;
-
-      margin-bottom:17px;
-
-      border:1px solid #33405b;
-      border-radius:10px;
-
-      color:var(--accent2);
-      background:#121a2b;
-
-      font-family:"JetBrains Mono",monospace;
-      font-size:13px;
-    }
-
-    .feature h3{
-      margin:0 0 7px;
-
-      color:#dce4f6;
-
-      font-size:15px;
-    }
-
-    .feature p{
-      margin:0;
-
-      color:#748198;
-
-      font-size:12px;
-      line-height:1.7;
-    }
-
-    /* TOOL CARD */
-
-    .tool-section{
-      max-width:900px;
-      margin:70px auto 0;
-    }
-
-    .tool-card{
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:25px;
-
-      align-items:center;
-
-      padding:26px;
-
-      border:1px solid var(--border);
-      border-radius:18px;
-
-      background:
-        linear-gradient(
-          120deg,
-          rgba(139,124,255,.08),
-          rgba(94,234,212,.035)
-        ),
-        rgba(17,24,39,.75);
-
-      box-shadow:0 15px 50px rgba(0,0,0,.18);
-    }
-
-    .tool-kicker{
-      margin:0 0 8px;
-
-      color:var(--accent2);
-
-      font-family:"JetBrains Mono",monospace;
-      font-size:10px;
-
-      letter-spacing:1.4px;
-      text-transform:uppercase;
-    }
-
-    .tool-card h2{
-      margin:0 0 8px;
-
-      color:#e8edfa;
-
-      font-size:23px;
-      letter-spacing:-.8px;
-    }
-
-    .tool-card p{
-      max-width:600px;
-
-      margin:0;
-
-      color:#7e8aa2;
-
-      font-size:13px;
-      line-height:1.7;
-    }
-
-    .tool-link{
-      white-space:nowrap;
-    }
-
-    /* FOOTER */
-
-    .footer{
-      max-width:1180px;
-
-      margin:80px auto 0;
-      padding:28px 24px 45px;
-
-      display:flex;
-      justify-content:space-between;
-
-      border-top:1px solid #161f30;
-
-      color:#56627a;
-
-      font-size:11px;
-    }
-
-    .footer-code{
-      color:#69758c;
-
-      font-family:"JetBrains Mono",monospace;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:760px){
-
-      .site-header{
-        height:64px;
-        padding:0 16px;
-      }
-
-      .privacy-pill{
-        display:none;
-      }
-
-      .container{
-        padding:48px 16px 30px;
-      }
-
-      h1{
-        letter-spacing:-2.5px;
-      }
-
-      .hero-copy{
-        font-size:15px;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-
-        max-width:280px;
-
-        margin-left:auto;
-        margin-right:auto;
-      }
-
-      .preview{
-        margin-top:45px;
-      }
-
-      .preview-body{
-        grid-template-columns:1fr;
-      }
-
-      .code-panel + .code-panel{
-        border-left:0;
-        border-top:1px solid var(--border);
-      }
-
-      .features{
-        grid-template-columns:1fr;
-      }
-
-      .tool-card{
-        grid-template-columns:1fr;
-      }
-
-      .tool-link{
-        width:100%;
-      }
-
-      .tool-link .primary-btn{
-        width:100%;
-      }
-
-      .footer{
-        padding:24px 16px;
-        gap:10px;
-
-        flex-direction:column;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -825,6 +223,52 @@
       </div>
 
     </section>
+
+    <section class="container">
+      <div class="tool-card" style="padding: 40px;">
+        <h2>About Our Developer Tools</h2>
+        <p>
+          We provide a suite of high-performance, privacy-focused utilities designed specifically for modern software developers. Our mission is to simplify your everyday workflow—whether you are formatting JSON, validating YAML, or working with complex string encoding—by bringing these tools directly to your browser.
+        </p>
+        
+        <h3>Privacy First</h3>
+        <p>
+          We believe in privacy by design. All data processing occurs locally within your web browser. Your sensitive configuration files, API payloads, and code snippets are never uploaded, saved, or transmitted to any server. What happens in your browser, stays in your browser.
+        </p>
+
+        <h3>Fast and Accessible</h3>
+        <p>
+          Our tools are built to be lightning-fast, reliable, and accessible from anywhere without the need for sign-ups or complex installations. Whether you are a frontend developer debugging responses or a DevOps engineer streamlining configurations, our toolkit is here to help you get the job done efficiently.
+        </p>
+      </div>
+    </section>
+    <!-- GUIDES SECTION -->
+    <section class="container">
+      <div class="guide-card guides-section">
+        <h2>Developer Guides & References</h2>
+        <p>
+          <h3>JSON (JavaScript Object Notation)</h3>
+          JSON is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse. It is the standard format for API responses, web configurations, and data storage in modern web applications.
+          <strong>Learn more at the <a href="https://www.json.org/" target="_blank" rel="noopener noreferrer">official JSON website</a></strong>
+        </p>
+        <p>
+          <h3>YAML (YAML Ain't Markup Language)</h3>
+          YAML is a human-readable data serialization language. It is commonly used for configuration files in development and DevOps workflows, such as Docker, Kubernetes, and CI/CD pipelines, because of its simplicity and clean syntax.
+          <strong>Explore the specification at <a href="https://yaml.org/" target="_blank" rel="noopener noreferrer">yaml.org</a></strong>
+        </p>
+
+        <p>
+          <h3>Encoding & Data Serialization</h3>
+          Encoding (such as Base64) is essential for converting binary data into text format, ensuring that data can be safely transmitted over network protocols, embedded in URLs, or saved in databases without corruption. It is a fundamental practice in secure data handling and web development.
+          <strong>Read more on <a href="https://developer.mozilla.org/en-US/docs/Glossary/Base64" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></strong>
+        </p>
+      </div>
+    </section>
+
+
+    <!-- CATEGORY TABS -->
+    <!-- (REMOVED) -->
+
 
 
     <!-- JSON Toolbox -->
